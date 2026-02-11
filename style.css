@@ -418,3 +418,13 @@ cursor: crosshair !important;
   background-color: #81bf7b;
   border: 3px solid hsl(218, 41%, 40%);
 }
+
+.marker-position {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  padding: 10px;
+  font-weight: 700;
+  background-color: #fff;
+}
