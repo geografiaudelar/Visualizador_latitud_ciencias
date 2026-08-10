@@ -42,13 +42,13 @@ function updateClip() {
   const se = map.containerPointToLayerPoint(map.getSize());
   const clipX = nw.x + (se.x - nw.x) * swipeRatio;
 
-  // Ortomosaico 1966: visible solo a la DERECHA del divisor
+  // Ortomosaico 1966: visible solo a la IZQUIERDA del divisor
   const cOrto = layerOrto.getContainer();
-  if (cOrto) cOrto.style.clip = `rect(${nw.y}px,${se.x}px,${se.y}px,${clipX}px)`;
+  if (cOrto) cOrto.style.clip = `rect(${nw.y}px,${clipX}px,${se.y}px,${nw.x}px)`;
 
-  // Satélite 2025: visible solo a la IZQUIERDA del divisor
+  // Satélite 2025: visible solo a la DERECHA del divisor
   const cSat = layerSatelite.getContainer();
-  if (cSat) cSat.style.clip = `rect(${nw.y}px,${clipX}px,${se.y}px,${nw.x}px)`;
+  if (cSat) cSat.style.clip = `rect(${nw.y}px,${se.x}px,${se.y}px,${clipX}px)`;
 }
 
 map.on('move zoom resize', updateClip);
@@ -74,12 +74,12 @@ mapDiv.appendChild(dividerEl);
 // Etiquetas fijas en los bordes del mapa (no se mueven con el divisor)
 const labelIzq = document.createElement('div');
 labelIzq.className = 'map-label left-label';
-labelIzq.textContent = '2025';
+labelIzq.textContent = '1966';
 mapDiv.appendChild(labelIzq);
 
 const labelDer = document.createElement('div');
 labelDer.className = 'map-label right-label';
-labelDer.textContent = '1966';
+labelDer.textContent = '2025';
 mapDiv.appendChild(labelDer);
 
 function positionDivider() {
