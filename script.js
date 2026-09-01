@@ -9,7 +9,7 @@ const map = L.map('map', { zoomControl: false }).setView([-32.94069733878892, -5
 L.control.zoom({ position: 'topright' }).addTo(map);
 
 // Capa base: Carto Light (siempre visible en todo el mapa)
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=cb1_2heu_1_d924d8034b78a0f807ea2871', {
   subdomains: 'abcd', maxZoom: 20,
   attribution: '&copy; CARTO | &copy; OpenStreetMap contributors'
 }).addTo(map);
